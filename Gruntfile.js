@@ -53,7 +53,9 @@ module.exports = function (grunt) {
           // Angular Project Dependencies,
           'node_modules/angular/angular.js',
           'node_modules/angular-resource/angular-resource.js',
-          'node_modules/angular-ui-router/release/*.js'
+          'node_modules/angular-ui-router/release/angular-ui-router.js',
+          'node_modules/chart.js/dist/Chart.js',
+          'node_modules/angular-chart.js/dist/angular-chart.js'
         ],
         dest: 'public/assets/js/<%= pkg.name %>-angularbundle.js'
       }

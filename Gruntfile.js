@@ -28,8 +28,6 @@ module.exports = function (grunt) {
       }
     },
 
-    exec: {},
-
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -169,6 +167,7 @@ module.exports = function (grunt) {
   grunt.option('force', true);
 
   grunt.loadNpmTasks('grunt-contrib-copy');
+
   // Register grunt tasks
   grunt.registerTask("build", [
     "jshint",
@@ -179,6 +178,14 @@ module.exports = function (grunt) {
     "injector:production",
     "concurrent",
     "clean"
+  ]);
+
+  grunt.registerTask("make", [
+    "jshint",
+    "concat",
+    "copy:bootstrap",
+    "ngtemplates",
+    "injector:production"
   ]);
 
   // Development task(s).

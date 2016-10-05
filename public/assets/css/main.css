@@ -8,3 +8,11 @@ nav.navbar {
 .navbar-default .navbar-nav > li > a {
   color: #fff;
 }
+
+.navbar-default .navbar-brand {
+  color: #fff;
+}
+
+div.content-wrapper {
+  margin-top: 50px;
+}

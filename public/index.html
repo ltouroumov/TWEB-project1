@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tweb-ghexplorer">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>GitHub Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=yes" />
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+  <div class="container topnav">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand topnav" href="https://kerroin.github.io/TWEB-project1/">Github Explorer</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ui-view="menu">
+      <!-- here goes the menu items -->
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+<div ui-view="content" class="content-wrapper"></div>
+
+
+<script src="/assets/js/tweb-ghexplorer-angularbundle.js"></script>
+<script src="/assets/js/tweb-ghexplorer-appbundle.js"></script>
+<script src="/assets/js/templates.js"></script>
+
+</body>
+</html>

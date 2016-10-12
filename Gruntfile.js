@@ -53,7 +53,8 @@ module.exports = function (grunt) {
           'node_modules/angular-resource/angular-resource.js',
           'node_modules/angular-ui-router/release/angular-ui-router.js',
           'node_modules/chart.js/dist/Chart.js',
-          'node_modules/angular-chart.js/dist/angular-chart.js'
+          'node_modules/angular-chart.js/dist/angular-chart.js',
+          'node_modules/bluebird/js/browser/bluebird.js'
         ],
         dest: 'public/assets/js/<%= pkg.name %>-angularbundle.js'
       }

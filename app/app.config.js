@@ -23,6 +23,7 @@
 
     // This is required for Browser Sync to work poperly
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    $httpProvider.defaults.headers.common['Authorization'] = 'Basic bHRvdXJvdW1vdjphOGNiY2RlOTIzMTAwMWE1NjMyM2Q4YTg1NWU0NTM3OWE5ZTRiYThi'; // jshint ignore:line
 
     $stateProvider.state('root', {
       views: {
@@ -32,6 +33,7 @@
         }
       }
     });
+
 
     $urlRouterProvider.when('', '/');
 

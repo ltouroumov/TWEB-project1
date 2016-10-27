@@ -21,6 +21,9 @@ angular
 
 
     Promise.all([
+      $http.post('/stats', $stateParams).then(function(response) {
+        console.log(response.data);
+      }),
       $http.get('https://api.github.com/repos/' + $scope.reponame + "/stats/contributors?per_page=100")
         .catch(function (error) {
           console.log("Error", error);

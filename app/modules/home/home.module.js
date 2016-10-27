@@ -11,7 +11,8 @@ require("angular-chart.js");
  */
 
 angular.module('ghexplorer.home', [
-  'chart.js'
+  'chart.js',
+  'ghexplorer.stats'
 ]);
 
 require("./home.controller");

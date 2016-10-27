@@ -4,6 +4,8 @@ angular.module('ghexplorer.stats')
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider
       .state('stats', {
+        url: '/stats',
+        abstract: true,
         views: {
           'menu': {
             templateUrl: 'modules/menu/menu.html',
@@ -13,7 +15,7 @@ angular.module('ghexplorer.stats')
         }
       })
       .state('stats.index', {
-        url: '/stats',
+        url: '',
         views: {
           'content@': {
             templateUrl: 'modules/stats/index.html',
@@ -22,7 +24,7 @@ angular.module('ghexplorer.stats')
         }
       })
       .state('stats.show', {
-        url: '/stats/:author/:name',
+        url: '/:author/:name',
         views: {
           'content@': {
             templateUrl: 'modules/stats/show.html',

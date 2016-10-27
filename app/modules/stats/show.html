@@ -1,16 +1,24 @@
 <div class="container">
   <div class="col-xs-12">
     <h1>Stats for {{ reponame }}</h1>
+    <div class="alert alert-danger" role="alert" ng-if="errors.length">
+      <ul>
+        <li ng-repeat="error in errors">{{error}}</li>
+      </ul>
+    </div>
   </div>
-  <div class="col-md-6 col-xs-12">
+  <div class="col-xs-12 text-center" ng-show="!completed">
+    Loading Stats ...
+  </div>
+  <div class="col-md-6 col-xs-12" ng-show="completed">
     <h2>Commit contributions (top 15)</h2>
     <canvas id="commits" class="chart chart-doughnut" chart-data="commits.data" chart-labels="commits.labels"></canvas>
   </div>
-  <div class="col-md-6 col-xs-12">
+  <div class="col-md-6 col-xs-12" ng-show="completed">
     <h2>Commits per day</h2>
     <canvas id="punchcart" class="chart chart-polar-area" chart-data="punchcard.data" chart-labels="punchcard.labels"></canvas>
   </div>
-  <div class="col-xs-12">
+  <div class="col-xs-12" ng-show="completed">
     <h2>Additions and Deletions (top 15)</h2>
     <canvas id="ad" class="chart chart-bar" chart-data="ad.data" chart-series="ad.series" chart-labels="ad.labels"></canvas>
   </div>

@@ -16,3 +16,4 @@ angular.module('ghexplorer.stats', [
 
 require("./stats.controller");
 require("./stats.route");
+require("./stats.directives");

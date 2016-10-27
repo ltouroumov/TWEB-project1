@@ -25,7 +25,9 @@ app.get('/stats', function (req, res) {
 
       coll.find().sort({count: -1}).limit(5).toArray().then(function (items) {
         console.log("Found stats", items.length);
-        res.json(items);
+        res.json(_.map(items, function (item) {
+          return _.omit(item, '_id');
+        }));
 
         db.close();
       });
@@ -33,7 +35,7 @@ app.get('/stats', function (req, res) {
 
 });
 
-app.post('/stats', function (req, res) {
+app.post('/stats', function (req, resp) {
 
   var info = req.body;
 
@@ -53,24 +55,17 @@ app.post('/stats', function (req, res) {
           console.log("Item", item);
 
           if (item === null) {
-            item = _.assign(info, {count: 1});
-            console.log("Inserting one", item);
-            return coll.insertOne(item)
-              .then(function (res) {
-                console.log("Inserted one");
-                res.json(item);
-                console.log("Sent response");
-              });
+            var data = _.assign(info, {count: 1});
+            return coll.insertOne(info).then(_.constant(data));
           } else {
-            item.count++;
-            console.log("Updating one", item);
-            return coll.updateOne({_id: item._id}, item)
-              .then(function (res) {
-                console.log("Updated one");
-                res.json(item);
-                console.log("Sent response");
-              });
+            var data = _.update(item, 'count', function (n) {
+              return n + 1;
+            });
+            return coll.updateOne({_id: item._id}, data).then(_.constant(data));
           }
+        })
+        .then(function (item) {
+          resp.json(_.omit(item, '_id'));
         })
         .then(function () {
           console.log("Closing ...");
